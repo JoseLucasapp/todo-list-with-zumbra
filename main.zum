@@ -1,1 +1,37 @@
-show("Hello world");
+var todos << [];
+
+var addTodo << fct(title, text){
+    addToArrayStart(todos, {"title": title, "text": text, "done": false});
+};
+
+var listTodos << fct(){
+    return todos;
+};
+
+var program << true;
+
+while(program){
+    show("Hello, welcome to your todo list");
+    show("Type 1, to see the todos");
+    show("Type 2, to add a new todo");
+
+    var option << input();
+
+    if (toInt(option) == 1){
+        show(listTodos());
+    }else{
+        if (toInt(option) == 2){
+            show("What is your todo title ?");
+            var title << input();
+
+            show("What is your todo content ?");
+            var content << input();
+
+            addTodo(title, content)
+            show("Todo created");
+        }else{
+            program << false;
+            show("Good bye !!");
+        }
+    }
+}
